@@ -15,3 +15,16 @@ class Projects(models.Model):
     isFeatured = models.BooleanField()
     total = models.IntegerField()
     donateCount = models.IntegerField()
+
+class Users(models.Model):
+    userID = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=500)
+    email = models.CharField(max_length=500)
+    image = models.CharField(max_length=1000)
+    description = models.CharField(max_length=10000)
+    
+class Contribution(models.Model):
+    contributionID = models.AutoField(primary_key=True)  
+    userID = models.CharField(max_length=20)
+    projectID = models.CharField(max_length=20)
+    amount = models.IntegerField()
